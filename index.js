@@ -1,5 +1,7 @@
 const { prisma } = require("./prisma/generated/prisma-client");
 
+const port = process.env.PORT || 3000;
+
 const express = require("express");
 const bodyParser = require("body-parser");
 
@@ -43,6 +45,4 @@ app.put(`/post/publish/:postId`, async (req, res) => {
   res.json(updatedPost);
 });
 
-app.listen(3000, () =>
-  console.log("Server is running on http://localhost:3000")
-);
+app.listen(port, () => console.log(`Server is running on ${port}`));
