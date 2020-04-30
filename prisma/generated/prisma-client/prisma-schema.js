@@ -15,6 +15,8 @@ type BatchPayload {
   count: Long!
 }
 
+scalar DateTime
+
 scalar Long
 
 type Mutation {
@@ -54,6 +56,7 @@ type Post {
   title: String!
   published: Boolean!
   author: User
+  createdAt: DateTime
 }
 
 type PostConnection {
@@ -92,12 +95,15 @@ enum PostOrderByInput {
   title_DESC
   published_ASC
   published_DESC
+  createdAt_ASC
+  createdAt_DESC
 }
 
 type PostPreviousValues {
   id: ID!
   title: String!
   published: Boolean!
+  createdAt: DateTime
 }
 
 input PostScalarWhereInput {
@@ -131,6 +137,14 @@ input PostScalarWhereInput {
   title_not_ends_with: String
   published: Boolean
   published_not: Boolean
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   AND: [PostScalarWhereInput!]
   OR: [PostScalarWhereInput!]
   NOT: [PostScalarWhereInput!]
@@ -235,6 +249,14 @@ input PostWhereInput {
   published: Boolean
   published_not: Boolean
   author: UserWhereInput
+  createdAt: DateTime
+  createdAt_not: DateTime
+  createdAt_in: [DateTime!]
+  createdAt_not_in: [DateTime!]
+  createdAt_lt: DateTime
+  createdAt_lte: DateTime
+  createdAt_gt: DateTime
+  createdAt_gte: DateTime
   AND: [PostWhereInput!]
   OR: [PostWhereInput!]
   NOT: [PostWhereInput!]
